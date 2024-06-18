@@ -1,14 +1,17 @@
-from machine import Pin, PWM
+from machine import Pin
 from time import sleep
+import dht
 
-pwm = PWM(Pin(15))
+sensor = dht.DHT22(Pin(22))
 
-pwm.freq(100)
+print("init ...")
 
-while True:
-    for duty in range(0, 65025, 1000):
-        pwm.duty_u16(duty)
-        sleep(0.01)
-    for duty in range(65025, 0, -1000):
-        pwm.duty_u16(duty)
-        sleep(0.01)
+try:
+  sensor.measure()
+  temp = sensor.temperature()
+  hum = sensor.humidity()
+
+  print("temp: %3.1f " %temp)
+  print("Hum: %3.1f %% " %hum)
+except OSError as e:
+  print("error")
