@@ -6,12 +6,16 @@ sensor = dht.DHT22(Pin(22))
 
 print("init ...")
 
-try:
-  sensor.measure()
-  temp = sensor.temperature()
-  hum = sensor.humidity()
+while 1:
+    try:
+      sensor.measure()
+      temp = sensor.temperature()
+      hum = sensor.humidity()
 
-  print("temp: %3.1f " %temp)
-  print("Hum: %3.1f %% " %hum)
-except OSError as e:
-  print("error")
+      print("\n")
+      print("temp: %3.1f " %temp)
+      print("Hum: %3.1f %% " %hum)
+      
+      sleep(3)
+    except OSError as e:
+      print("error")
