@@ -1,11 +1,14 @@
-# demo code from:
-# https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/6
+from machine import Pin, PWM
+from time import sleep
 
-from machine import Pin, Timer
-led = Pin(15, Pin.OUT)
-timer = Timer()
+pwm = PWM(Pin(15))
 
-def blink(timer):
-    led.toggle()
+pwm.freq(1000)
 
-timer.init(freq=2.5, mode=Timer.PERIODIC, callback=blink)
+while True:
+    for duty in range(65025):
+        pwm.duty_u16(duty)
+        sleep(0.0001)
+    for duty in range(65025, 0, -1):
+        pwm.duty_u16(duty)
+        sleep(0.0001)
