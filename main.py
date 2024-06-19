@@ -1,14 +1,17 @@
-from machine import Pin
+from machine import Pin, Timer
 from time import sleep
 import dht
 
-def turn_on_led (pin):
+
+def turn_on_led(pin):
     led = Pin(pin, Pin.OUT)
     led.on()
 
-def toggle_led (pin):
+
+def toggle_led(pin):
     led = Pin(pin, Pin.OUT)
     led.toggle()
+
 
 # pin definition
 pin_power = 14
@@ -28,15 +31,15 @@ sensor = dht.DHT22(pin_dht22)
 
 while 1:
     try:
-      sensor.measure()
-      temp = sensor.temperature()
-      hum = sensor.humidity()
+        sensor.measure()
+        temp = sensor.temperature()
+        hum = sensor.humidity()
 
-      print("\n")
-      print("temp: %3.1f " %temp)
-      print("Hum: %3.1f %% " %hum)
-      
-      sleep(dht_interval)
+        print("\n")
+        print("temp: %3.1f " % temp)
+        print("Hum: %3.1f %% " % hum)
+
+        sleep(dht_interval)
     except OSError as e:
-      print(e)
-      sleep(1)
+        print(e)
+        sleep(1)
