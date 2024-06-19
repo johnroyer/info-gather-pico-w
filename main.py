@@ -2,9 +2,12 @@ from machine import Pin
 from time import sleep
 import dht
 
-sensor = dht.DHT22(Pin(22))
+# pin definition
+pin_power = 0
+pin_network = 1
+pin_dht22 = 22
 
-print("init ...")
+sensor = dht.DHT22(pin_dht22)
 
 while 1:
     try:
