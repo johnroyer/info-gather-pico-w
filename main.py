@@ -18,4 +18,5 @@ while 1:
       
       sleep(3)
     except OSError as e:
-      print("error")
+      print(e)
+      sleep(1)
