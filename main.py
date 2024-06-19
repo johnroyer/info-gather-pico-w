@@ -8,6 +8,9 @@ def turn_on_led(pin):
     led = Pin(pin, Pin.OUT)
     led.on()
 
+def turn_off_led(pin):
+    led = Pin(pin, Pin.OUT)
+    led.off()
 
 
 
@@ -30,13 +33,7 @@ turn_on_led(pin_power)
 
 
 # wifi not connected
-wifi_led = Pin(pin_wifi, Pin.OUT)
-wifi_led_timer = Timer()
-
-def blink_wifi_led(timer):
-    wifi_led.toggle()
-
-wifi_led_timer.init(freq=2.5, mode=Timer.PERIODIC, callback=blink_wifi_led)
+turn_on_led(pin_wifi)
 
 # connecting to wifi
 while True:
@@ -50,8 +47,7 @@ while True:
             sleep(1)
         else:
             print('connected to :' + net_ssid)
-            wifi_led_timer.deinit()
-            wifi_led.off()
+            turn_off_led(pin_wifi)
             break
     except KeyboardInterrupt as e:
         print(e)
