@@ -6,6 +6,10 @@ def turn_on_power_led (pin):
     led = Pin(pin, Pin.OUT)
     led.on()
 
+def blinking_led (pin):
+    led = Pin(pin, Pin.OUT)
+    led.toggle()
+
 # pin definition
 pin_power = 14
 pin_network = 15
