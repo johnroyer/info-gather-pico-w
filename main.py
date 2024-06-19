@@ -48,6 +48,7 @@ while True:
             sleep(1)
         else:
             print('connected to :' + net_ssid)
+            print(wlan.ifconfig())
             turn_off_led(pin_wifi)
             break
     except KeyboardInterrupt as e:
