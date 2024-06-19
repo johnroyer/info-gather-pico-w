@@ -1,4 +1,5 @@
 from machine import Pin, Timer
+import machine
 from time import sleep
 import network
 import dht
@@ -51,7 +52,7 @@ while True:
             break
     except KeyboardInterrupt as e:
         print(e)
-        sleep(2)
+        machine.reset()
 
 
 
