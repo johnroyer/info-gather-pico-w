@@ -7,8 +7,8 @@ def lightup_power_led (pin):
     led.on()
 
 # pin definition
-pin_power = 0
-pin_network = 1
+pin_power = 14
+pin_network = 15
 pin_dht22 = 22
 
 lightup_power_led(pin_power)
