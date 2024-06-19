@@ -2,7 +2,7 @@ from machine import Pin
 from time import sleep
 import dht
 
-def lightup_power_led (pin):
+def turn_on_power_led (pin):
     led = Pin(pin, Pin.OUT)
     led.on()
 
@@ -14,7 +14,7 @@ pin_dht22 = 22
 # sensor scan interval in seconds
 dht_interval = 5
 
-lightup_power_led(pin_power)
+turn_on_power_led(pin_power)
 
 sensor = dht.DHT22(pin_dht22)
 
