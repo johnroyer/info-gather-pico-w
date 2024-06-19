@@ -2,10 +2,16 @@ from machine import Pin
 from time import sleep
 import dht
 
+def lightup_power_led (pin):
+    led = Pin(pin, Pin.OUT)
+    led.on()
+
 # pin definition
 pin_power = 0
 pin_network = 1
 pin_dht22 = 22
+
+lightup_power_led(pin_power)
 
 sensor = dht.DHT22(pin_dht22)
 
