@@ -2,7 +2,7 @@ from machine import Pin
 from time import sleep
 import dht
 
-def turn_on_power_led (pin):
+def turn_on_led (pin):
     led = Pin(pin, Pin.OUT)
     led.on()
 
@@ -19,10 +19,10 @@ pin_dht22 = 22
 dht_interval = 5
 
 # power on
-turn_on_power_led(pin_power)
+turn_on_led(pin_power)
 
 # wifi not connected
-turn_on_power_led(pin_network)
+turn_on_led(pin_network)
 
 sensor = dht.DHT22(pin_dht22)
 
