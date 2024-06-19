@@ -6,7 +6,7 @@ def turn_on_led (pin):
     led = Pin(pin, Pin.OUT)
     led.on()
 
-def blinking_led (pin):
+def toggle_led (pin):
     led = Pin(pin, Pin.OUT)
     led.toggle()
 
