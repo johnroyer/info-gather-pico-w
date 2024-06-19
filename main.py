@@ -15,6 +15,10 @@ pin_power = 14
 pin_wifi = 15
 pin_dht22 = 22
 
+# wifi connection
+net_ssid = ""
+net_password = ""
+
 # sensor scan interval in seconds
 dht_interval = 5
 
