@@ -27,6 +27,8 @@ net_password = ""
 # sensor scan interval in seconds
 dht_interval = 5
 
+
+
 # power on
 turn_on_led(pin_power)
 
@@ -42,10 +44,10 @@ while True:
         wlan = network.WLAN(network.STA_IF)
         wlan.active(True)
         wlan.connect(net_ssid, net_password)
-
+        sleep(3)
+        #print("status: " + str(wlan.status()))
         if False == wlan.isconnected():
             print('failed to connect to: ' + net_ssid)
-            sleep(1)
         else:
             print('connected to :' + net_ssid)
             print(wlan.ifconfig())
@@ -53,6 +55,8 @@ while True:
             break
     except KeyboardInterrupt as e:
         print(e)
+        turn_off_led(pin_power)
+        turn_off_led(pin_wifi)
         machine.reset()
 
 
