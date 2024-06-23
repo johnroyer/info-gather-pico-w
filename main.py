@@ -3,6 +3,7 @@ import machine
 from time import sleep
 import network
 import dht
+import urequests as requests
 
 
 def turn_on_led(pin):
@@ -73,7 +74,13 @@ while 1:
         print("temp: %3.1f " % temp)
         print("Hum: %3.1f %% " % hum)
 
+        # send data to server
+        url = 'http://192.168.xx.xx:8080/pico.php?' + "temp=" + str(temp) + "&hum=" + str(hum)
+        res = requests.post(url)
+        print(res.status_code)
+        print(res.text)
+
         sleep(dht_interval)
     except OSError as e:
         print(e)
-        sleep(1)
+        exit()
