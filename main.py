@@ -3,6 +3,9 @@ import machine
 from time import sleep
 import network
 import dht
+
+# import mip
+# mip.install('urequests')
 import urequests as requests
 
 
