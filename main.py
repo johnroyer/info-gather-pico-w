@@ -86,4 +86,7 @@ while 1:
         sleep(dht_interval)
     except OSError as e:
         print(e)
-        exit()
+        turn_off_led(pin_wifi)
+        sleep(1)
+        turn_on_led(pin_wifi)
+        sleep(1)
