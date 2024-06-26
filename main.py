@@ -47,9 +47,13 @@ while True:
     try:
         wlan = network.WLAN(network.STA_IF)
         wlan.active(True)
+        print('wifi enabled')
+        print("status: " + str(wlan.status()))
+        sleep(5)
         wlan.connect(net_ssid, net_password)
         sleep(3)
-        #print("status: " + str(wlan.status()))
+        print("status: " + str(wlan.status()))
+
         if False == wlan.isconnected():
             print('failed to connect to: ' + net_ssid)
         else:
