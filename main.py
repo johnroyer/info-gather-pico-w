@@ -78,13 +78,22 @@ while 1:
         print("Hum: %3.1f %% " % hum)
 
         # send data to server
-        url = 'http://192.168.xx.xx:8080/pico.php?' + "temp=" + str(temp) + "&hum=" + str(hum)
+        url = 'http://192.168.17.103:8080/pico.php?' + "temp=" + str(temp) + "&hum=" + str(hum)
         res = requests.post(url)
         print(res.status_code)
         print(res.text)
 
+        # wait
         sleep(dht_interval)
+
     except OSError as e:
+        print(e)
+        turn_off_led(pin_wifi)
+        sleep(1)
+        turn_on_led(pin_wifi)
+        sleep(1)
+
+    except Exception as ee:
         print(e)
         turn_off_led(pin_wifi)
         sleep(1)
