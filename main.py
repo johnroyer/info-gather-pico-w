@@ -45,6 +45,9 @@ turn_on_led(pin_wifi)
 # connecting to wifi
 while True:
     try:
+        # wifi not connected
+        turn_on_led(pin_wifi)
+
         wlan = network.WLAN(network.STA_IF)
         wlan.active(True)
         print('wifi enabled')
