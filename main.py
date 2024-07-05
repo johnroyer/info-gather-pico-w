@@ -13,10 +13,10 @@ def turn_on_led(pin):
     led = Pin(pin, Pin.OUT)
     led.on()
 
+
 def turn_off_led(pin):
     led = Pin(pin, Pin.OUT)
     led.off()
-
 
 
 # pin definition
@@ -31,13 +31,8 @@ net_password = ""
 # sensor scan interval in seconds
 dht_interval = 5
 
-
-
 # power on
 turn_on_led(pin_power)
-
-
-
 
 # wifi not connected
 turn_on_led(pin_wifi)
@@ -70,8 +65,6 @@ while True:
         turn_off_led(pin_wifi)
         sleep(5)
         machine.reset()
-
-
 
 sensor = dht.DHT22(pin_dht22)
 
@@ -107,7 +100,6 @@ while 1:
         if (3 != wlan.status()):
             turn_on_led(pin_wifi)
             sleep(5)
-
 
     except Exception as ee:
         print(e)
