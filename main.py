@@ -76,6 +76,13 @@ sensor = dht.DHT22(pin_dht22)
 
 while 1:
     try:
+        if (3 != wlan.status()):
+            turn_on_led(pin_wifi)
+            sleep(5)
+            continue;
+        else:
+            turn_off_led(pin_wifi)
+
         sensor.measure()
         temp = sensor.temperature()
         hum = sensor.humidity()
