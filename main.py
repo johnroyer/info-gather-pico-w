@@ -95,14 +95,15 @@ while 1:
 
     except OSError as e:
         print(e)
-        turn_off_led(pin_wifi)
-        sleep(1)
-        turn_on_led(pin_wifi)
-        sleep(1)
+
+        if (3 !== wlan.status()):
+            turn_on_led(pin_wifi)
+            sleep(5)
+
 
     except Exception as ee:
         print(e)
-        turn_off_led(pin_wifi)
-        sleep(1)
-        turn_on_led(pin_wifi)
-        sleep(1)
+
+        if (3 !== wlan.status()):
+            turn_on_led(pin_wifi)
+            sleep(5)
