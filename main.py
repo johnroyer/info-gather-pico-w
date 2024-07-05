@@ -68,6 +68,7 @@ while True:
         print(e)
         turn_off_led(pin_power)
         turn_off_led(pin_wifi)
+        sleep(5)
         machine.reset()
 
 
