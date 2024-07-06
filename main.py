@@ -72,7 +72,8 @@ while 1:
     try:
         if (3 != wlan.status()):
             turn_on_led(pin_wifi)
-            sleep(5)
+            wlan.connect(net_ssid, net_password)
+            sleep(2)
             continue;
         else:
             turn_off_led(pin_wifi)
